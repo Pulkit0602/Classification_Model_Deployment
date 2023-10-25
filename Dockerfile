@@ -1,20 +1,27 @@
-#Base Image
+# Base Image
 FROM continuumio/miniconda3
 
-#Copy file from system to the containeer
+# Copy files from your host system to the container
 COPY . /workspace
 
-#Set up working Directory
+# Set up the working directory
 WORKDIR /workspace
 
-#Setup conda environmet
+# Create a Conda environment
 RUN conda create --name venv python=3.11
-RUN echo "source activate venv" ~/.bashrc
 
+# Activate the Conda environment
+SHELL ["/bin/bash", "-c"]
+RUN echo "source activate venv" >> ~/.bashrc
+
+# Set the environment path for the Conda environment
 ENV PATH /opt/conda/envs/venv/bin:$PATH
 
-#Install all the Requirments
-RUN /opt/conda/envs/venv/bin/pip install -r requirements.txt
+# Install requirements in the Conda environment
+RUN /bin/bash -c "source activate venv && pip install -r requirements.txt"
 
+# Expose a port (assuming your app listens on port 8080)
 EXPOSE 8080
-ENTRYPOINT ["/opt/conda/envs/venv/bin/python", "app.py"]
+
+# Define the entry point for your application
+ENTRYPOINT ["/bin/bash", "-c", "source activate venv && python app.py"]
