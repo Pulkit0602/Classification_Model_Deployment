@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Iris Species Predictor</h1>
+    <form action="/predict" method="post">
+        <label for="sepal_length">Sepal Length:</label>
+        <input type="number" name="sepal_length" step="0.01" required><br>
+
+        <label for="sepal_width">Sepal Width:</label>
+        <input type="number" name="sepal_width" step="0.01" required><br>
+
+        <label for="petal_length">Petal Length:</label>
+        <input type="number" name="petal_length" step="0.01" required><br>
+
+        <label for="petal_width">Petal Width:</label>
+        <input type="number" name="petal_width" step="0.01" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <p>{{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
