@@ -16,4 +16,4 @@ spec:
         - name: ml-model-container
           image: ml-model-image:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
