@@ -15,13 +15,13 @@ This guide outlines the steps for deploying a machine learning model using Googl
 2. **Build the Docker Image and Push to GCP Registry**
     Build the Docker image and push it to the Google Cloud Platform (GCP) registry. Replace `gcr.io/test-deployment-403209/ml-model-image:latest` with your desired image name and tag. Ensure you use your GCP project ID.
     ```bash
-    gcloud builds submit --tag gcr.io/your-project-id/ml-model-image:latest
+    gcloud builds submit --tag gcr.io/test-deployment-403209d/ml-model-image:latest
     ```
 
 3. **Check the Docker Image Build**
     List the Docker images in your GCP repository to verify that the image was built successfully. Make sure to replace `gcr.io/test-deployment-403209` with your GCP project ID.
     ```bash
-    gcloud container images list --repository=gcr.io/your-project-id
+    gcloud container images list --repository=gcr.io/test-deployment-403209d
     ```
 
 4. **Creating a Kubernetes Cluster**
@@ -31,15 +31,15 @@ This guide outlines the steps for deploying a machine learning model using Googl
     ```
 
 5. **To Delete Docker Image (Optional)**
-    If you need to delete the Docker image, you can use the `gcloud container images delete` command. Replace `gcr.io/your-project-id/ml-model-image:latest` with the image name and tag you want to delete.
+    If you need to delete the Docker image, you can use the `gcloud container images delete` command. Replace `gcr.io/test-deployment-403209d/ml-model-image:latest` with the image name and tag you want to delete.
     ```bash
-    gcloud container images delete gcr.io/your-project-id/ml-model-image:latest
+    gcloud container images delete gcr.io/test-deployment-403209d/ml-model-image:latest
     ```
 
 6. **Run Docker Image**
     To deploy your containerized application using Google Cloud Run, use the following command. Replace `gcr.io/test-deployment-403209/ml-model-image` with the image you built, and specify the service name and any additional settings as needed.
     ```bash
-    gcloud run deploy --image gcr.io/your-project-id/ml-model-image
+    gcloud run deploy --image gcr.io/test-deployment-403209d/ml-model-image
     ```
 
 7. **Start with Kubernetes Deployment (If Docker container is running perfectly)**
