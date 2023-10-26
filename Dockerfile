@@ -21,7 +21,7 @@ ENV PATH /opt/conda/envs/venv/bin:$PATH
 RUN /bin/bash -c "source activate venv && pip install -r requirements.txt"
 
 # Expose a port (assuming your app listens on port 8080)
-EXPOSE 8080
+ENV PORT 8080
 
 # Define the entry point for your application
 ENTRYPOINT ["/bin/bash", "-c", "source activate venv && python app.py"]
