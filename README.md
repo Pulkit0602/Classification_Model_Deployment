@@ -21,7 +21,7 @@ This guide outlines the steps for deploying a machine learning model using Googl
 3. **Check the Docker Image Build**
     List the Docker images in your GCP repository to verify that the image was built successfully. Make sure to replace `gcr.io/test-deployment-403209` with your GCP project ID.
     ```bash
-    gcloud container images list --repository=gcr.io/test-deployment-403209d
+    gcloud container images list --repository=gcr.io/test-deployment-403209
     ```
 
 4. **Creating a Kubernetes Cluster**
