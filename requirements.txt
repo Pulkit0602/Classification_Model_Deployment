@@ -5,7 +5,5 @@ scipy==1.11.3
 requests==2.31.0
 pickleshare==0.7.5
 pip==23.3
-<<<<<<< HEAD
 Werkzeug==2.2.2
-=======
->>>>>>> fccef79af16d0d89bc421bcc9e91404b69e43be6
+
